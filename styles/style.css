@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: 'Poppins' , sans-serif;
 }
-html,body{
+ body{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,6 +16,8 @@ html,body{
     height: 400px;
     width: 320px;
     position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 .wrapper .card{
     height: 100%;
@@ -24,6 +26,12 @@ html,body{
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
+    padding: 5px;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+.wrapper:hover .front-face{
+    transform: rotateY(-180deg);
 }
 .wrapper .card img{
     height: 100%;
@@ -35,6 +43,10 @@ html,body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    transform: rotateY(180deg);
+}
+.wrapper:hover .back-face{
+    transform: rotateY(0deg);
 }
 .wrapper .back-face img{
     height: 150px;
